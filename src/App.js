@@ -3,11 +3,27 @@ import React from 'react';
 
 class Square extends React.Component
 {
+  // Use constructor to take in propertie that stores the state of the square
+  constructor(props)
+  {
+    // In javscript classes, you need to always call super when defining the constructor 
+    // of a subclass
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+  
+  
   render()
   {
+    // React will only call this function after a click
+    // It will set the State of the square to X
+    // You will see X on the square
+    // setState will automatically updates the child component inside of it
     return (
-    <button className="square" onClick={function(){ console.log('click');}}>
-      {this.props.value}
+    <button className="square" onClick={() =>this.setState({value: 'X')}>
+      {this.state.value}
     </button>
     );
   }
