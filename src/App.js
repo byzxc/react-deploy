@@ -33,6 +33,16 @@ class Square extends React.Component
 
 class Board extends React.Component
 {
+  // Create a constructor to create the board
+  // of an array of 9 squares to be null
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+  
   renderSquare(i)
   {
     // pass a propertie called "value" to Square
