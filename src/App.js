@@ -22,7 +22,9 @@ class Square extends React.Component
     // You will see X on the square
     // setState will automatically updates the child component inside of it
     return (
-    <button className="square" onClick={() =>this.setState({value: 'X')}>
+      <button className="square" 
+        onClick={() => this.setState({value: 'X'})}
+      >
       {this.state.value}
     </button>
     );
