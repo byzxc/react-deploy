@@ -1,6 +1,6 @@
 ![deploy](https://github.com/byzxc/react-deploy/actions/workflows/deploy.yml/badge.svg)
 
-# Webpage host on GitHub Pages at
+# Webpage hosted on GitHub Pages
 https://byzxc.github.io/react-deploy/
 
 # Getting Started with Create React App
