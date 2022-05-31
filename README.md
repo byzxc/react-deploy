@@ -69,5 +69,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-![deploy](https://github.com/github/docs/actions/workflows/deploy.yml/badge.svg)
+![deploy](https://github.com/byzxc/react-deploy/actions/workflows/deploy/badge.svg)
+
 
