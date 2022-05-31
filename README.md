@@ -4,6 +4,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Features
+
+Added automatic deployment of React to gh-pages through the use of GitHub action
+
 ## Available Scripts
 
 In the project directory, you can run:
