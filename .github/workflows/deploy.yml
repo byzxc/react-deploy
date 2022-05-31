@@ -19,6 +19,9 @@ jobs:
       with:
           node-version: "12.x"
 
+    - name: Upgrade NPM
+      run: npm install -g npm
+
     - name: Install dependencies
       run: npm ci
 
