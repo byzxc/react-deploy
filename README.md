@@ -1,6 +1,15 @@
+![deploy](https://github.com/byzxc/react-deploy/actions/workflows/deploy.yml/badge.svg)
+
+# Webpage hosted on GitHub Pages
+https://byzxc.github.io/react-deploy/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Features
+
+Added automatic deployment of React to gh-pages through the use of GitHub action
 
 ## Available Scripts
 
