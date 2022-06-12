@@ -1,9 +1,6 @@
 import './App.css';
 import React from 'react';
-import React, { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-<<<<<<< HEAD
 // function App() {
 //   return (
 //     <div className="App">
@@ -70,18 +67,6 @@ const data = [
     amt: 2100,
   },
 ];
-// class Square extends React.Component
-// {
-//   render()
-//   {
-//     return (
-//     <button className="square">
-//       {this.props.value}
-//     </button>
-//     );
-//   }
-// }
-=======
 class Square extends React.Component
 {
   // Use constructor to take in propertie that stores the state of the square
@@ -111,106 +96,56 @@ class Square extends React.Component
     );
   }
 }
-
 class Board extends React.Component
 {
-  // Create a constructor to create the board
-  // of an array of 9 squares to be null
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-      squares: Array(9).fill(null),
-    };
-  }
-  
   renderSquare(i)
   {
     // pass a propertie called "value" to Square
-    return <Square value={this.state.squares[i]} />;
+    return <Square value={i} />;
   }
->>>>>>> a2718a3c64ddbcbc9d825dd3aff75cccc49abc1c
-
-// class Board extends React.Component
-// {
-//   renderSquare(i)
-//   {
-//     // pass a propertie called "value" to Square
-//     return <Square value={i} />;
-//   }
-
-//   render() {
-//     const status = 'Next player: X';
-
-//     return (
-//       <div>
-//         <div className="status">{status}</div>
-//         <div className="board-row">
-//           {this.renderSquare(0)}
-//           {this.renderSquare(1)}
-//           {this.renderSquare(2)}
-//         </div>
-//         <div className="board-row">
-//           {this.renderSquare(3)}
-//           {this.renderSquare(4)}
-//           {this.renderSquare(5)}
-//         </div>
-//         <div className="board-row">
-//           {this.renderSquare(6)}
-//           {this.renderSquare(7)}
-//           {this.renderSquare(8)}
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// class Game extends React.Component
-// {
-//   render()
-//   {
-//       return (
-//         <div className="game">
-//           <div className="game-board">
-//             <Board />
-//           </div>
-//           <div className="game-info">
-//             <div>{/* status */}</div>
-//             <ol>{/* TODO */}</ol>
-//           </div>
-//         </div>
-//       );
-//   }
-// }
-
-// export default Game;
-
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/simple-line-chart-kec3v';
 
   render() {
+    const status = 'Next player: X';
+
     return (
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
     );
   }
 }
+
+class Game extends React.Component
+{
+  render()
+  {
+      return (
+        <div className="game">
+          <div className="game-board">
+            <Board />
+          </div>
+          <div className="game-info">
+            <div>{/* status */}</div>
+            <ol>{/* TODO */}</ol>
+          </div>
+        </div>
+      );
+  }
+}
+
+export default Game;
