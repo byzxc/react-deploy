@@ -1,72 +1,6 @@
 import './App.css';
 import React from 'react';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Hello <code>src/App.js</code> Simon.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://github.com/TeamWDK/WDK_Engine"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn GAM300
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// Data
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
 class Square extends React.Component
 {
   // Use constructor to take in propertie that stores the state of the square
@@ -96,12 +30,23 @@ class Square extends React.Component
     );
   }
 }
+
 class Board extends React.Component
 {
+  // Create a constructor to create the board
+  // of an array of 9 squares to be null
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+  
   renderSquare(i)
   {
     // pass a propertie called "value" to Square
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]} />;
   }
 
   render() {
