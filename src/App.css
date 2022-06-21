@@ -28,6 +28,36 @@
   color: #61dafb;
 }
 
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  background-color: lightgreen;
+}
+
+.square {
+  box-shadow: 0 0 1px 1px red;
+}
+
+/* Inserts "" after every board-row */
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
