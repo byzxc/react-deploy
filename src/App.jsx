@@ -1,6 +1,9 @@
 import './App.css';
 import React from 'react';
 
+// TODO::
+// Ability to click the square once only to avoid it being overwritten
+
 // Function to declaring a winner
 function calculateWinner(squares)
 {
@@ -60,6 +63,7 @@ class Board extends React.Component
   {
     // Returns index 0 of the array if no number is passed in to slice();
     // .slice() create a copy of the squares
+    // Using slice will benefit us in terms of ability to do undo
     const squares = this.state.squares.slice();
     squares[i] = this.state.xIsNext ? 'X' : 'O';
 
