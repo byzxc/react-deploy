@@ -96,18 +96,26 @@ class Game extends React.Component {
     };
   }
 
-  // Define handeClick function
   handleClick(i) {
+    const history = this.state.history;
+    const current = history[history.length - 1];
     // Returns index 0 of the array if no number is passed in to slice();
     // .slice() create a copy of the squares
     // Using slice will benefit us in terms of ability to do undo
-    const squares = this.state.squares.slice();
+    const squares = current.squares.slice();
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
     squares[i] = this.state.xIsNext ? "X" : "O";
 
     // This is essentially this((prevState) => ({stateName: prevState.stateName + 1}))
     // This will allow to me toggle between O and X
     this.setState({
-      squares: squares,
+      history: history.concat([
+        {
+          squares: squares,
+        },
+      ]),
       xIsNext: !this.state.xIsNext,
     });
   }
