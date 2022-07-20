@@ -5,7 +5,7 @@ import React from "react";
 // Button to retry, and reset the entire board
 
 // Button to retry
-function Retry() {}
+//function Retry() {}
 
 // Function to declaring a winner
 function calculateWinner(squares) {
