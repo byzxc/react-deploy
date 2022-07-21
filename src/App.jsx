@@ -91,12 +91,13 @@ class Game extends React.Component {
           squares: Array(9).fill(null),
         },
       ],
+      stepNumber: 0,
       xIsNext: true,
     };
   }
 
   handleClick(i) {
-    const history = this.state.history;
+    const history = this.state.history.slice(0, this.step.stepNumber + 1);
     const current = history[history.length - 1];
     // Returns index 0 of the array if no number is passed in to slice();
     // .slice() create a copy of the squares
@@ -115,14 +116,34 @@ class Game extends React.Component {
           squares: squares,
         },
       ]),
+      stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
   }
 
+  jumpTo(step) {
+    this.setState({
+      stepNumber: step,
+      xIsNext: (step % 2) === 0,
+    });
+  }
+
   render() {
-    const history = this.state.history;
-    const current = history[history.length - 1];
+    const history = this.state.history.slice;
+    const current = history[this.step.stepNumber];
     const winner = calculateWinner(current.squares);
+
+    // step is key, value is move
+    const moves = history.map((step, move) => {
+      const desc = move ? "Go to move #" + move : "Go to game start";
+
+      return (
+        <li>
+          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        </li>
+      );
+    });
+
     let status;
     if (winner) {
       status = "Winner: " + winner;
@@ -135,12 +156,12 @@ class Game extends React.Component {
         <div className="game-board">
           <Board
             squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
+            onclick={(i) => this.handleClick(i)}
           />
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{/* TODO */}</ol>
+          <ol>{moves}</ol>
         </div>
       </div>
     );
