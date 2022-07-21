@@ -7,6 +7,12 @@ import React from "react";
 // Button to retry
 //function Retry() {}
 
+const WinCondition = {
+  Win,
+  Lose,
+  Draw,
+};
+
 // Function to declaring a winner
 function calculateWinner(squares) {
   // Ways to win the 3x3 tic tac toe
@@ -20,15 +26,22 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
+  // To check if all the values in the array is false
+  if (squares.every(false)) {
+    return WinCondition.Lose;
+  }
+
   for (let i = 0; i < lines.length; ++i) {
     // 1 row, 3 cols
     const [a, b, c] = lines[i];
     // As long as there is one diagonal or straight line same, the player wins.
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return WinCondition.Win;
     }
   }
-  return null;
+
+  return WinCondition.Lose;
 }
 
 // React will only call this function after a click
@@ -84,7 +97,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // Game contains History member which is an array of squares of an array of 9
+      // Game contains History member which is an array of squares of an array of 9 bools
       // contains a bool member xIsNext to keep track of whose turn it is
       history: [
         {
@@ -124,7 +137,7 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0,
+      xIsNext: step % 2 === 0,
     });
   }
 
@@ -145,10 +158,19 @@ class Game extends React.Component {
     });
 
     let status;
-    if (winner) {
-      status = "Winner: " + winner;
-    } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+
+    switch (winner) {
+      case WinCondition.Win: {
+        status = "Winner: " + winner;
+        break;
+      }
+      case WinCondition.Lose: {
+        status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+        break;
+      }
+      default: {
+        status = "Draw!";
+      }
     }
 
     return (
