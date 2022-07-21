@@ -8,9 +8,9 @@ import React from "react";
 //function Retry() {}
 
 const WinCondition = {
-  Win,
-  Lose,
-  Draw,
+  Win: 'Win',
+  Lose: 'Lose',
+  Draw: 'Draw',
 };
 
 // Function to declaring a winner
@@ -160,11 +160,11 @@ class Game extends React.Component {
     let status;
 
     switch (winner) {
-      case WinCondition.Win: {
+      case 'Win': {
         status = "Winner: " + winner;
         break;
       }
-      case WinCondition.Lose: {
+      case 'Lose': {
         status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         break;
       }
